@@ -1,0 +1,76 @@
+<p>Admin</p>
+<h2>Групи</h2>
+<table cellspacing="0">
+    <tr>
+    	<th>№</th><th>Назва</th><th>Опис</th><th>Ціна</th>
+    </tr>
+
+    <% @groups.each do |item| %>
+	    <tr>
+	    	<td><%= item.id %></td>
+	    	<td><%= item.name %></td>
+	    	<td><%= item.description %></td>
+	    	<td><a href="/admin/group/<%= item.id %>">Edit</a></td>
+	    </tr>
+	<% end %>
+</table>
+
+<h2>Товари</h2>
+<table cellspacing="0">
+    <tr>
+    	<th>№</th><th>Назва</th><th>Група</th><th>Ціна</th>
+    </tr>
+
+    <% @products.each do |item| %>
+	    <tr>
+	    	<td><%= item.id %></td>
+	    	<td><%= item.name %></td>
+	    	<td><%= item.group.name %></td>
+	    	<td><%= item.price %></td>
+	    </tr>
+	<% end %>
+</table>
+<h2>Категорії</h2>
+<div>
+	<form method="post" action="/admin/new_group" enctype="multipart/form-data">
+		<p>
+			<label for="name">Назва</label>
+			<input id="name" type="text" name="group[name]" required>
+		</p>
+		<p>Короткий опис<br>
+			<textarea name="group[description]" cols="40" rows="3"></textarea></p>
+		</p>
+		<p for="name">Завантажити картинку</p>
+		<input type="file" name="img" multiple>
+
+		<input type="submit" value="Додати групу" name="submit">
+	</form>
+</div>
+<h2>Продукти</h2>
+<div>
+	<form method="post" action="/admin/new_product">
+		<p>
+			<label for="name">Назва товару</label>
+			<input id="name" type="text" name="name" required>
+		</p>
+
+		<% if @groups %>
+			<select name="group_name">
+				<% @groups.each do |item| %>
+					<option><%= item.name %></option>
+				<% end %>	
+			</select>
+		<% end %>
+
+		<p>
+			<label for="price">Ціна</label>
+			<input id="price" type="text" name="price" required>
+		</p>
+		<p>Короткий опис<br>
+			<textarea name="description" cols="40" rows="3"></textarea></p>
+		</p>
+		<p for="name">Завантажити картинку</p>
+		<input type="file" name="img" multiple>
+		<input type="submit" value="Створити" name="submit">
+	</form>
+</div>

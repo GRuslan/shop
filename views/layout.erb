@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" />
+    
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type='text/javascript' src='js/jquery.hoverIntent.minified.js'></script>
+<script type='text/javascript' src='js/jquery.dcmegamenu.1.2.js'></script>
+<script type="text/javascript">
+$(document).ready(function($){
+	$('#mega-menu-tut').dcMegaMenu({
+		rowItems: '3',
+		speed: 'fast'
+	});
+});
+</script>
+
+<style>
+/* Demo Styles */
+.wrap {width: 960px; margin: 0 auto;}
+</style>
+
+
+
+</head>
+<body>
+    <div class="main"> 
+      <div class="block"></div >
+       <div class="line" > 
+           <div id="registrmap">
+
+	<% if session[:user] %>
+		<a href="/logout">ВИХІД</a>
+	<% else %>
+		<a href="/login">ВХІД</a>
+		<a>/</a>
+		<a href="/sign_up">РЕГІСТРАЦІЯ</a>
+	<% end %>
+          </div>
+          <div id="kontaktmap">
+         <a href="/kontakt">КОНТАКТИ</a>
+         <a>/</a>
+         <a href="/kontakt">МОЇ ПОКУПКИ</a>
+          </div>
+
+	<div class="line2"> 
+	<img style="position:relative;top:19px;left:29px;" src="images/login.png"> </div>
+
+	<form class="form-wrapper cf">
+	<input type="text" placeholder="Введіть слово для пошуку" required>
+	<button type="submit">Пошук</button>
+</form>
+
+
+
+<div class="dcjq-mega-menu">
+<ul id="mega-menu-tut" class="menu">
+	<li><a href="#">ГОЛОВНА</a></li>
+	<li><a href="#">ОДЯГ</a>
+		<ul>
+			<li id="menu-item-1"><a href="#">Coupe</a>
+				<ul>
+					<li><a href="#">Citroen C4</a></li>
+					<li><a href="#">Honda CR-Z</a></li>
+					<li><a href="#">BMW 3 Series</a></li>
+					<li><a href="#">Volvo C30</a></li>
+				</ul>
+			</li>
+			<li id="menu-item-2"><a href="#">Saloon</a>
+			    <ul>
+					
+					<li><a href="#">Volkswagen Passat</a></li>
+					<li><a href="#">Volvo S40</a></li>
+					<li><a href="#">Vauxhall Insignia</a></li>
+					<li><a href="#">Mitsubishi Lancer</a></li>
+					
+				</ul>
+			</li>
+			<li id="menu-item-3"><a href="#">Convertibles</a>
+			    <ul>
+					
+					<li><a href="#">Mini Convertible</a></li>
+					<li><a href="#">Renault Megane CC</a></li>
+					<li><a href="#">Peugeot 207 CC</a></li>
+					<li><a href="#">Volkswagen Eos</a></li>
+					
+				</ul>
+			</li>
+			<li id="menu-item-4"><a href="#">SUV's</a>
+			    <ul>
+					
+					<li><a href="#">Land Rover Freelander 2</a></li>
+					<li><a href="#">Audi Q5</a></li>
+					<li><a href="#">Land Rover Discovery 3</a></li>
+					<li><a href="#">Volvo XC90</a></li>
+					
+				</ul>
+			</li>
+			<li id="menu-item-5"><a href="#">Pickups</a>
+			    <ul>
+					<li><a href="#">Suzuki Equator</a></li>
+					<li><a href="#">Ford F-150</a></li>
+					<li><a href="#">Toyota Tacoma</a></li>
+					<li><a href="#">Nissan Frontier</a></li>
+					
+				</ul>
+			</li>
+			<li id="menu-item-6"><a href="#">High Performance Cars</a>
+			    <ul>
+					<li><a href="#">Lamborghini Gallardo</a></li>
+					<li><a href="#">Ferrari F430</a></li>
+					<li><a href="#">Aston Martin Vantage</a></li>
+					<li><a href="#">Porsche 911 Turbo</a></li>
+					
+				</ul>
+			</li>
+			
+		</ul>
+	</li>
+	
+<li><a href="#">ПРО НАС</a>
+  <ul><li><a href="#">About Us</a></li><li><a href="#">About Us</a></li>
+  </ul></li>
+<li><a href="#">СЕРВІС</a></li>
+<li><a href="#">КОНТАКТИ</a></li>
+</ul>
+</div>
+
+	  <div class="header"><%= yield %> 
+
+	<p class='error'><%= flash[:error] %></p>
+	<p class='notice'><%= flash[:notice] %></p>
+	</div>
+	</div>
+	</div>
+
+
+<div class="footer">
+
+<table  >
+	<tr >
+		<th colspan="2" > ОБСЛУГОВУВАННЯ КЛІЄНТІВ</th>
+
+		<th  > ПРО НАС</th>
+
+	</tr>
+	<tr> 
+	<td><a href="/kontakt">КОНТАКТИ</a></td>
+	<td><a href="/kontakt">ПОВЕРНЕННЯ ТОВАРУ</a></td>
+	<td><a href="/kontakt">IСON STYLE</a></td>
+	</tr>
+
+	<tr> 
+	<td><a href="/kontakt">ДОСТАВКА</a></td>
+	<td><a href="/kontakt">ЗНИЖКИ</a></td>
+	<td><a href="/kontakt">ПРИВАТНІСТЬ</a></td>
+	</tr>
+
+	<tr> 
+	<td><a href="/kontakt">ОПЛАТА</a></td>
+
+	</tr>
+
+</table>
+
+<div class="company"><h1>© 2013 GR&&SVV All Right Reserved</h1></div>
+
+</div>
+</body>	
+</html>
